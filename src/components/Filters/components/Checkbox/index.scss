@@ -1,0 +1,43 @@
+/* Customize the label (the container) */
+.checkbox {
+  display: block;
+  user-select: none;
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  $padding: 15px;
+
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: $padding + 1px;
+    height: 19px;
+    width: 19px;
+    background-image: url("assets/filter-checkbox-icon.png");
+    background-repeat: no-repeat;
+  }
+
+  &.checked {
+    .checkmark {
+      background-image: url("assets/filter-checkbox-checked-icon.png");
+    }
+  }
+
+  label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    margin: 0;
+    font-size: 13px;
+    line-height: 23px;
+    padding-left: $padding + 31;
+    padding-right: $padding;
+  }
+}

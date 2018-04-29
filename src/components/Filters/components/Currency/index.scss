@@ -1,0 +1,15 @@
+.container {
+  .button {
+    line-height: 26px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-color: #D2D5D6;
+
+    &:hover {
+      background-color: #F2FCFF;
+      color: #2196F3;
+    }
+  }
+}

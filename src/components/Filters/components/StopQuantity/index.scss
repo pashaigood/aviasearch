@@ -1,0 +1,59 @@
+.container {
+  margin-top: 31px;
+}
+
+.transferCount {
+  $padding: 6px;
+  margin: -$padding -15px;
+
+  .button {
+    line-height: 24px;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: #F2FCFF;
+      color: #2196F3;
+    }
+  }
+
+  .transfer {
+    position: relative;
+
+    .only {
+      position: absolute;
+      top: 0;
+      right: 15px;
+      height: 100%;
+      cursor: pointer;
+      user-select: none;
+
+      font-size: 11px;
+      text-align: right;
+      letter-spacing: 0.5px;
+      font-weight: bold;
+
+      color: #2196F3;
+      text-transform: uppercase;
+      line-height: 38px;
+
+      display: none;
+    }
+
+    &:hover {
+      .only {
+        display: block;
+      }
+    }
+  }
+
+  .transferCheckbox {
+    padding-top: $padding;
+    padding-bottom: $padding;
+
+    &:hover {
+      background-color: #F1FCFF;
+    }
+  }
+}
