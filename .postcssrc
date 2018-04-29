@@ -1,0 +1,10 @@
+{
+  "modules": true,
+  "plugins": {
+    "postcss-import": {},
+    "postcss-modules": {
+      "globalModulePaths": ["src/components/UIKit/Bootstrap.scss"],
+      "generateScopedName": "[local]___[hash:base64:5]"
+    }
+  }
+}
