@@ -17,7 +17,7 @@ export default () => (
     name='Количество пересадок'
   >
     <div
-      className={Classes.transferCount}
+      className={Classes.stopQuantity}
     >
       {
         Transfers.map((name, id) => (

@@ -1,15 +1,19 @@
+@import "../../../UIKit/index";
+
 .container {
   .button {
-    line-height: 26px;
     font-size: 12px;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
     text-transform: uppercase;
     font-weight: bold;
     border-color: #D2D5D6;
+    padding-top: 12px;
+    padding-bottom: 8px;
 
     &:hover {
       background-color: #F2FCFF;
       color: #2196F3;
+      border-color: $blue;
     }
   }
 }

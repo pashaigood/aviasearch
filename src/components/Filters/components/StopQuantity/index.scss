@@ -2,9 +2,9 @@
   margin-top: 31px;
 }
 
-.transferCount {
+.stopQuantity {
   $padding: 6px;
-  margin: -$padding -15px;
+  margin: -3px -15px;
 
   .button {
     line-height: 24px;
@@ -24,7 +24,7 @@
     .only {
       position: absolute;
       top: 0;
-      right: 15px;
+      right: 13px;
       height: 100%;
       cursor: pointer;
       user-select: none;

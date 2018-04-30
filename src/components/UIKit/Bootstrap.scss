@@ -1,8 +1,4 @@
-$font-family-sans-serif: 'Open Sans', sans-serif;
-$body-bg: #f3f7fa;
-$body-color: #4A4A4A;
-
-$blue: #2196F3;
+@import "./variables";
 
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";

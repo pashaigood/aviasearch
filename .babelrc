@@ -4,6 +4,9 @@
     }]
   ],
   "plugins": [
+    ["module-resolver", {
+      "root": ["./src", "./assets"]
+    }],
     "transform-react-jsx",
     "transform-object-rest-spread"
   ]

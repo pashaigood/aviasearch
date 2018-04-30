@@ -6,7 +6,7 @@ const Container = (props) => {
   return (
     <div
       style={props.style}
-      className={Classes.container}
+      className={`${Classes.container} ${props.className || ''}`}
       children={props.children}
     />
   )

@@ -1,0 +1,9 @@
+.container {
+  width: 840px;
+
+  .filters {
+    $width: 252px;
+    flex: 0 0 $width;
+    max-width: $width;
+  }
+}

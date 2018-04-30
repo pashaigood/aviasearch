@@ -7,7 +7,7 @@ const Styles = {
     textAlign: 'center'
   },
   logo: {
-    marginTop: 39
+    marginTop: 40
   }
 }
 
