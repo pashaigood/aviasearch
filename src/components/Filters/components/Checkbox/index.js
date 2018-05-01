@@ -1,22 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { pure } from 'recompose'
 import Classes from './index.scss'
 
-const Checkbox = ({id, name, checked, label, className, ...props}) => (
+const Checkbox = ({checked, label, className, value, onChange, ...props}) => (
   <div
     className={`${Classes.checkbox} ${checked ? Classes.checked : ''}`}
     {...props}
+    onClick={e => onChange(value)}
   >
-    <input id={id} name={name} type='checkbox'/>
-    <label htmlFor={id} className={className}><span className={Classes.checkmark}/>{label}</label>
+    <div className={`${Classes.label} ${className}`}><span className={Classes.checkmark}/>{label}</div>
   </div>
 )
 
 Checkbox.propTypes = {
-  id: PropTypes.any.isRequired,
-  name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
-  label: PropTypes.node.isRequired
+  label: PropTypes.node.isRequired,
+  value: PropTypes.any.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
-export default Checkbox
+export default pure(Checkbox)

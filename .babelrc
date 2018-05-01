@@ -7,6 +7,7 @@
     ["module-resolver", {
       "root": ["./src", "./assets"]
     }],
+    "transform-class-properties",
     "transform-react-jsx",
     "transform-object-rest-spread"
   ]

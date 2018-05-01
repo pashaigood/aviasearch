@@ -1,18 +1,8 @@
-/* Customize the label (the container) */
 .checkbox {
+  $padding: 15px;
   display: block;
   user-select: none;
 
-  /* Hide the browser's default checkbox */
-  input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
-
-  $padding: 15px;
-
-  /* Create a custom checkbox */
   .checkmark {
     position: absolute;
     top: 50%;
@@ -30,7 +20,7 @@
     }
   }
 
-  label {
+  .label {
     cursor: pointer;
     display: block;
     position: relative;

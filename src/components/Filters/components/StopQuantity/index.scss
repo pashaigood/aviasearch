@@ -1,8 +1,4 @@
 .container {
-  margin-top: 31px;
-}
-
-.stopQuantity {
   $padding: 6px;
   margin: -3px -15px;
 
@@ -42,6 +38,8 @@
     }
 
     &:hover {
+      background-color: #F1FCFF;
+
       .only {
         display: block;
       }
@@ -51,9 +49,5 @@
   .transferCheckbox {
     padding-top: $padding;
     padding-bottom: $padding;
-
-    &:hover {
-      background-color: #F1FCFF;
-    }
   }
 }

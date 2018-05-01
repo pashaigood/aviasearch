@@ -16,10 +16,12 @@
     "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.0",
     "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.4",
+    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "jest": "^22.4.3",
     "node-sass": "^4.8.3",
@@ -31,7 +33,16 @@
     "react-dom": "^16.3.2"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/assets/tests/setup.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|css|scss)$": "<rootDir>/assets/tests/nil.js"
+    },
+    "modulePaths": ["<rootDir>/src"],
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!**/node_modules/**",
+      "!**/src/contexts/**"
+    ]
   },
   "dependencies": {
     "babel-plugin-react-css-modules": "^3.4.0",
@@ -39,6 +50,8 @@
     "immutable": "^3.8.2",
     "npm-font-open-sans": "^1.1.0",
     "postcss-scss": "^1.0.5",
-    "prop-types": "^15.6.1"
+    "prop-types": "^15.6.1",
+    "recompose": "^0.27.0",
+    "utils": "^0.3.1"
   }
 }

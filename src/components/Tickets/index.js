@@ -1,11 +1,17 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { pure } from 'recompose'
 import Ticket from './components/Ticket'
-import { tickets } from 'mocks/tickets.json'
 
-export default (props) => (
+/**
+ *
+ * @param {[TicketDTO]} items
+ * @constructor
+ */
+const Tickets = ({items}) => (
   <div>
     {
-      tickets.map((ticket, index) => (
+      items.map((ticket, index) => (
         <Ticket
           key={index}
           ticket={ticket}
@@ -14,3 +20,9 @@ export default (props) => (
     }
   </div>
 )
+
+Tickets.propTypes = {
+  items: PropTypes.array.isRequired
+}
+
+export default pure(Tickets)

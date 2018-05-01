@@ -1,32 +1,38 @@
 import React from 'react'
 import Container from 'components/Container'
-import Classes from './index.scss'
+import CurrencyFormat from 'components/CurrencyFormat'
 import LineLogo from 'images/line-logo.png'
+import format from 'utils/format'
+import Classes from './index.scss'
 
-export default () => (
+/**
+ *
+ * @param {TicketDTO} ticket
+ */
+export default ({ticket}) => (
   <Container className={Classes.container}>
     <div className='d-flex'>
       <div className={Classes.buy}>
         <img src={LineLogo} width={120} height={35} />
         <button className="btn">
-          Купить <br /> за 21 032 ​₽
+          Купить <br /> за <CurrencyFormat value={ticket.price}/>
         </button>
       </div>
       <div className={`w-100 ${Classes.info}`}>
         <div className={Classes.transfer}>
-          <div className={Classes.count}>1 ПЕРЕСАДКА</div>
+          <div className={Classes.count}>{format.stopQuantityName(ticket.stops)}</div>
           <div className={Classes.direction}/>
         </div>
         <div className="d-flex">
           <div className="w-100">
-            <div className={Classes.time}>09:25</div>
-            <div className={Classes.location}>VVO, Владивосток</div>
-            <div className={Classes.date}>9 окт 2018, Пт</div>
+            <div className={Classes.time}>{ticket.arrival_time}</div>
+            <div className={Classes.location}>{ticket.origin}, {ticket.origin_name}</div>
+            <div className={Classes.date}>{format.date(ticket.arrival_date)}</div>
           </div>
           <div className={`w-100 ${Classes.destination}`}>
-            <div className={Classes.time}>11:45</div>
-            <div className={Classes.location}>Тель-Авив, TLV</div>
-            <div className={Classes.date}>10 окт 2018, Пт </div>
+            <div className={Classes.time}>{ticket.departure_time}</div>
+            <div className={Classes.location}>{ticket.destination_name}, {ticket.destination}</div>
+            <div className={Classes.date}>{format.date(ticket.departure_date)}</div>
           </div>
         </div>
       </div>

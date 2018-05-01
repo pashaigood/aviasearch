@@ -22,6 +22,7 @@ dist
 
 # Runtime data
 .cache
+coverage
 pids
 *.pid
 *.seed

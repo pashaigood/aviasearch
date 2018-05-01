@@ -1,25 +1,59 @@
 import React from 'react'
-import Header from 'components/Header'
-import Filters from 'components/Filters'
-import Tickets from 'components/Tickets'
-import Classes from './index.scss'
+import Currencies, { Values as CurrencyValues } from 'constants/Currencies'
+import ticketsMock from 'mocks/tickets.json'
+import FiltersDTO from 'dtos/Filters'
+import Ticket from 'dtos/Ticket'
+import Application from './Application'
+
+const TICKETS_SORTING = 'price'
 
 export default class extends React.Component {
+
+  componentWillMount () {
+    const filters = new FiltersDTO()
+
+    this.setState({
+      currency: Currencies[CurrencyValues.RUB],
+      filters,
+      tickets: this.getTickets(filters)
+    })
+  }
+
+  changeCurrency = (currencyName) => {
+    const currency = Currencies[currencyName]
+    if (!currency) {
+      throw new Error('Try to select unregistered currency.')
+    }
+
+    this.setState({
+      currency
+    })
+  }
+
+  changeFilter = ({stopQuantities}) => {
+    let {filters} = this.state
+
+    filters = new FiltersDTO({
+      stopQuantities: stopQuantities || filters.stopQuantities
+    })
+
+    this.setState({
+      filters,
+      tickets: this.getTickets(filters)
+    })
+  }
+
+  getTickets (filters = new FiltersDTO(), sort = TICKETS_SORTING) {
+    return ticketsMock.tickets.filter(filters.getFilter).sort((a, b) => a[sort] > b[sort]).map(t => new Ticket(t))
+  }
+  
   render () {
     return (
-      <div>
-        <Header/>
-        <div className={`container-fluid ${Classes.container}`}>
-          <div className="row">
-            <div className={`col ${Classes.filters}`}>
-              <Filters />
-            </div>
-            <div className="col-sm">
-              <Tickets />
-            </div>
-          </div>
-        </div>
-      </div>
+      <Application
+        {...this.state}
+        onCurrencyChange={this.changeCurrency}
+        onFiltersChange={this.changeFilter}
+      />
     )
   }
 }
