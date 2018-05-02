@@ -1,9 +1,28 @@
+@import "../../components/UIKit/index.scss";
+
 .container {
+  $leftBarWidth: 252px;
   width: 840px;
 
-  .filters {
-    $width: 252px;
-    flex: 0 0 $width;
-    max-width: $width;
+  @include media-breakpoint-down(md) {
+    width: auto;
+  }
+
+  .leftBar {
+    position: fixed;
+    width: $leftBarWidth;
+
+    @include media-breakpoint-down(xs) {
+      position: static;
+      width: 100%;
+    }
+  }
+
+  .tickets {
+    margin-left: $leftBarWidth + $grid-gutter-width;
+    @include media-breakpoint-down(xs) {
+      margin-left: 0;
+    }
   }
 }
+

@@ -5,6 +5,10 @@
   margin-bottom: 20px;
   padding: 0;
 
+  @include media-breakpoint-down(sm) {
+    height: auto;
+  }
+
   &:hover {
     @include transition($btn-transition);
     box-shadow: 0 5px 25px rgba(91, 137, 164, 0.1);
@@ -19,6 +23,13 @@
   border-right: solid 1px #ECEFF1;
 
   text-align: center;
+
+  @include media-breakpoint-down(sm) {
+    height: auto;
+    @include make-col(12);
+    margin-bottom: 20px;
+    order: 2;
+  }
 
   img {
     margin-top: 26px;
@@ -68,6 +79,14 @@
 
     color: #8B9497;
 
+    @include media-breakpoint-down(md) {
+      margin-top: 100px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 85px;
+    }
+
     .count {
       width: 103px;
       white-space: nowrap;
@@ -81,6 +100,7 @@
     height: 1px;
 
     background-color: #D2D5D6;
+
 
     &:after {
       position: absolute;

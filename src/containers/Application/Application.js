@@ -10,20 +10,18 @@ const Application = ({filters, currency, tickets, onCurrencyChange, onFiltersCha
   <div>
     <Header/>
     <div className={`container-fluid ${Classes.container}`}>
-      <div className="row">
-        <div className={`col ${Classes.filters}`}>
-          <LeftBar
-            currency={currency.name}
-            onCurrencyChange={onCurrencyChange}
-            filters={filters}
-            onFiltersChange={onFiltersChange}
-          />
-        </div>
-        <div className="col-sm">
-          <CurrenciesContext.Provider value={currency}>
-            <Tickets items={tickets} />
-          </CurrenciesContext.Provider>
-        </div>
+      <div className={Classes.leftBar}>
+        <LeftBar
+          currency={currency.name}
+          onCurrencyChange={onCurrencyChange}
+          filters={filters}
+          onFiltersChange={onFiltersChange}
+        />
+      </div>
+      <div className={Classes.tickets}>
+        <CurrenciesContext.Provider value={currency}>
+          <Tickets items={tickets}/>
+        </CurrenciesContext.Provider>
       </div>
     </div>
   </div>

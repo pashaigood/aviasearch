@@ -36,7 +36,7 @@ export default class extends React.PureComponent {
 
     return (
       <div
-        className={Classes.container}
+        className={`row no-gutters ${Classes.container}`}
       >
         {
           Object.keys(StopQuantity).map((name) => {
@@ -44,7 +44,7 @@ export default class extends React.PureComponent {
             return (
               <div
                 key={name}
-                className={Classes.transfer}
+                className={`col-6 col-sm-12 ${Classes.transfer}`}
               >
                 <Checkbox
                   className={Classes.transferCheckbox}

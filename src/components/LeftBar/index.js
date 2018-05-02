@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 import Container  from 'components/Container'
 import Currency from 'components/Currency'
 import Filters from 'components/Filters'
+import Classes from './index.scss'
 
 const LeftBar = (props) => (
-  <Container>
+  <Container
+    className={Classes.container}
+  >
     <Currency
       currency={props.currency}
       onChange={props.onCurrencyChange}
