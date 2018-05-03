@@ -13,12 +13,6 @@ const Styles = {
 
 export default () => (
   <div style={Styles.container}>
-    <img
-      style={Styles.logo}
-      src={Logo}
-      width={82}
-      height={90}
-      alt="Logo"
-    />
+    <img style={Styles.logo} src={Logo} width={82} height={90} alt='Logo' />
   </div>
 )

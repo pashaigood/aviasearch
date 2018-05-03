@@ -22,6 +22,10 @@ function currency (number, currency) {
 
 function date (source) {
   const date = new Date(source)
-  const locale = "ru-RU"
-  return `${date.getDay()} ${date.toLocaleString(locale, { month: "short" }).slice(0, -1)} ${date.getFullYear()}, ${date.toLocaleString(locale, {weekday: 'short'})}`
+  const locale = 'ru-RU'
+  return `${date.getDay()} ${date
+    .toLocaleString(locale, { month: 'short' })
+    .slice(0, -1)} ${date.getFullYear()}, ${date.toLocaleString(locale, {
+    weekday: 'short'
+  })}`
 }

@@ -6,9 +6,15 @@ import LeftBar from 'components/LeftBar'
 import Tickets from 'components/Tickets'
 import Classes from './index.scss'
 
-const Application = ({filters, currency, tickets, onCurrencyChange, onFiltersChange}) => (
+const Application = ({
+  filters,
+  currency,
+  tickets,
+  onCurrencyChange,
+  onFiltersChange
+}) => (
   <div>
-    <Header/>
+    <Header />
     <div className={`container-fluid ${Classes.container}`}>
       <div className={Classes.leftBar}>
         <LeftBar
@@ -20,7 +26,7 @@ const Application = ({filters, currency, tickets, onCurrencyChange, onFiltersCha
       </div>
       <div className={Classes.tickets}>
         <CurrenciesContext.Provider value={currency}>
-          <Tickets items={tickets}/>
+          <Tickets items={tickets} />
         </CurrenciesContext.Provider>
       </div>
     </div>

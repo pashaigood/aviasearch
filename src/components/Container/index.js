@@ -4,7 +4,7 @@ import Classes from './index.scss'
 
 export { default as Group } from './components/Group'
 
-const Container = (props) => {
+const Container = props => {
   return (
     <div
       style={props.style}

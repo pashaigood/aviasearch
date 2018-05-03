@@ -11,7 +11,7 @@ export default class extends React.PureComponent {
     onChange: PropTypes.func.isRequired
   }
 
-  toggle = (name) => {
+  toggle = name => {
     const values = new Set(this.props.values)
     if (values.has(StopQuantity[name])) {
       values.delete(StopQuantity[name])
@@ -32,36 +32,36 @@ export default class extends React.PureComponent {
   }
 
   render () {
-    const {values} = this.props
+    const { values } = this.props
 
     return (
-      <div
-        className={`row no-gutters ${Classes.container}`}
-      >
-        {
-          Object.keys(StopQuantity).map((name) => {
-            const isAllCheckbox = name !== Values.ALL
-            return (
-              <div
-                key={name}
-                className={`col-6 col-sm-12 ${Classes.transfer}`}
-              >
-                <Checkbox
-                  className={Classes.transferCheckbox}
-                  value={name}
-                  label={format.stopQuantityName(StopQuantity[name])}
-                  checked={isAllCheckbox ? values.includes(StopQuantity[name]) : !values.length}
-                  onChange={isAllCheckbox ? this.toggle : this.checkAll}
-                />
-                {
-                  isAllCheckbox && (
-                    <span className={Classes.only} onClick={() => this.checkOnly(name)}>Только</span>
-                  )
+      <div className={`row no-gutters ${Classes.container}`}>
+        {Object.keys(StopQuantity).map(name => {
+          const isAllCheckbox = name !== Values.ALL
+          return (
+            <div key={name} className={`col-6 col-sm-12 ${Classes.transfer}`}>
+              <Checkbox
+                className={Classes.transferCheckbox}
+                value={name}
+                label={format.stopQuantityName(StopQuantity[name])}
+                checked={
+                  isAllCheckbox
+                    ? values.includes(StopQuantity[name])
+                    : !values.length
                 }
-              </div>
-            )
-          })
-        }
+                onChange={isAllCheckbox ? this.toggle : this.checkAll}
+              />
+              {isAllCheckbox && (
+                <span
+                  className={Classes.only}
+                  onClick={() => this.checkOnly(name)}
+                >
+                  Только
+                </span>
+              )}
+            </div>
+          )
+        })}
       </div>
     )
   }

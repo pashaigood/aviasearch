@@ -1,4 +1,4 @@
-import StopQuantity, { Values }  from 'constants/StopQuantity'
+import StopQuantity, { Values } from 'constants/StopQuantity'
 
 export default function (value) {
   switch (value) {

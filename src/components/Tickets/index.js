@@ -8,16 +8,9 @@ import Ticket from './components/Ticket'
  * @param {[TicketDTO]} items
  * @constructor
  */
-const Tickets = ({items}) => (
+const Tickets = ({ items }) => (
   <div>
-    {
-      items.map((ticket, index) => (
-        <Ticket
-          key={index}
-          ticket={ticket}
-        />
-      ))
-    }
+    {items.map((ticket, index) => <Ticket key={index} ticket={ticket} />)}
   </div>
 )
 

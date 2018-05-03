@@ -1,7 +1,5 @@
 export default class FiltersDTO {
-  constructor ({
-                 stopQuantities = []
-               } = {}) {
+  constructor ({ stopQuantities = [] } = {}) {
     this.stopQuantities = stopQuantities
   }
 
@@ -9,7 +7,9 @@ export default class FiltersDTO {
    *
    * @param {TicketDTO} ticket
    */
-  getFilter = (ticket) => {
-    return !this.stopQuantities.length || this.stopQuantities.includes(ticket.stops)
+  getFilter = ticket => {
+    return (
+      !this.stopQuantities.length || this.stopQuantities.includes(ticket.stops)
+    )
   }
 }

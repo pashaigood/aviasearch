@@ -14,7 +14,7 @@ describe('components/Filters/components/StopQuantity', () => {
 
   it('Should check values', () => {
     const values = [Values.DIRECT, Values.THREE]
-    component.setProps({values: values.map(v => StopQuantity[v])})
+    component.setProps({ values: values.map(v => StopQuantity[v]) })
     const checkboxProps = getCheckedProps()
     values.forEach(v => {
       expect(findChecked(v, checkboxProps)).toBeTruthy()
@@ -37,7 +37,9 @@ describe('components/Filters/components/StopQuantity', () => {
     expect(checkboxes.length).toBeGreaterThan(0)
     const checkboxProps = getCheckedProps()
     const isAllChecked = findChecked(Values.ALL, checkboxProps)
-    const isOtherChecked = checkboxProps.filter(p => p.value !== Values.ALL).reduce((result, p) => result && p.checked, true)
+    const isOtherChecked = checkboxProps
+      .filter(p => p.value !== Values.ALL)
+      .reduce((result, p) => result && p.checked, true)
     expect(isAllChecked).toBeTruthy()
     expect(isOtherChecked).toBeFalsy()
   })
@@ -57,13 +59,15 @@ describe('components/Filters/components/StopQuantity', () => {
     let instance
     beforeEach(() => {
       values = [Values.DIRECT, Values.ONE].map(v => StopQuantity[v])
-      component.setProps({values})
+      component.setProps({ values })
       instance = component.instance()
     })
 
     it('When value toggle', () => {
       instance.toggle(Values.TWO)
-      expect(onChange.mock.calls[0][0]).toEqual(values.concat(StopQuantity[Values.TWO]))
+      expect(onChange.mock.calls[0][0]).toEqual(
+        values.concat(StopQuantity[Values.TWO])
+      )
 
       instance.toggle(Values.DIRECT)
       expect(onChange.mock.calls[1][0]).toEqual([StopQuantity[Values.ONE]])
@@ -79,7 +83,6 @@ describe('components/Filters/components/StopQuantity', () => {
       expect(onChange.mock.calls[0][0]).toEqual([])
     })
   })
-
 
   function findChecked (value, checkboxProps) {
     checkboxProps = checkboxProps || getCheckedProps()

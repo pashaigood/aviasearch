@@ -4,6 +4,6 @@ import { shallow } from 'enzyme'
 
 describe('containers/Application', () => {
   it('Should be rendered', () => {
-    shallow(<Component/>)
+    shallow(<Component />)
   })
 })

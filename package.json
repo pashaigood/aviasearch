@@ -10,8 +10,8 @@
     "build": "npm run clean && npm run webpack:build && npm run copy",
     "serve": "node ./tools/distServer",
     "copy": "copyfiles -u 1 assets/mocks/**/*.json dist",
-    "format": "prettier --write './{src,bin,test}/**/*.{js,jsx,json,md}'",
-    "lint": "prettier --list-different './{src,bin,test}/**/*.{js,jsx,json,md}'",
+    "format": "prettier-standard ./src/**/*.{js,jsx,json,md}",
+    "lint": "standard ./src/**/*.{js,jsx,json,md}",
     "test": "npm run lint && npm run unit",
     "unit": "jest",
     "webpack:start": "cross-env NODE_ENV=development webpack-dev-server --hot",
@@ -22,6 +22,7 @@
     "assets-webpack-plugin": "^3.5.1",
     "autoprefixer": "^8.4.1",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-react-css-modules": "^3.4.0",
@@ -62,6 +63,7 @@
     "postcss-preset-env": "^4.1.0",
     "postcss-scss": "^1.0.5",
     "prettier": "^1.12.1",
+    "prettier-standard": "^8.0.1",
     "progress-bar-webpack-plugin": "^1.11.0",
     "purify-css": "^1.2.5",
     "purifycss-webpack": "^0.7.0",
@@ -70,6 +72,7 @@
     "react-hot-loader": "^4.1.2",
     "rimraf": "^2.6.2",
     "sass-loader": "^7.0.1",
+    "standard": "^11.0.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.6.0",
@@ -88,6 +91,16 @@
       "src/**/*.{js}",
       "!**/node_modules/**",
       "!**/src/contexts/**"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "globals": [
+      "jest",
+      "beforeEach",
+      "describe",
+      "expect",
+      "it"
     ]
   },
   "dependencies": {

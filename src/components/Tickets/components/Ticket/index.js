@@ -9,33 +9,43 @@ import Classes from './index.scss'
  *
  * @param {TicketDTO} ticket
  */
-export default ({ticket}) => (
+export default ({ ticket }) => (
   <Container className={`${Classes.container} `}>
     <div className='row no-gutters'>
       <div className={Classes.buy}>
         <div>
           <img src={LineLogo} width={120} height={35} />
         </div>
-        <button className="btn">
-          Купить <br /> за <CurrencyFormat value={ticket.price}/>
+        <button className='btn'>
+          Купить <br /> за <CurrencyFormat value={ticket.price} />
         </button>
       </div>
-      <div className="col">
+      <div className='col'>
         <div className={Classes.info}>
           <div className={Classes.transfer}>
-            <div className={Classes.count}>{format.stopQuantityName(ticket.stops)}</div>
-            <div className={Classes.direction}/>
+            <div className={Classes.count}>
+              {format.stopQuantityName(ticket.stops)}
+            </div>
+            <div className={Classes.direction} />
           </div>
-          <div className="d-flex">
-            <div className="w-100">
-              <div className={Classes.time}>{ticket.arrival_time}</div>
-              <div className={Classes.location}>{ticket.origin}, {ticket.origin_name}</div>
-              <div className={Classes.date}>{format.date(ticket.arrival_date)}</div>
+          <div className='d-flex'>
+            <div className='w-100'>
+              <div className={Classes.time}>{ticket.arrivalTime}</div>
+              <div className={Classes.location}>
+                {ticket.origin}, {ticket.originName}
+              </div>
+              <div className={Classes.date}>
+                {format.date(ticket.arrivalDate)}
+              </div>
             </div>
             <div className={`w-100 ${Classes.destination}`}>
-              <div className={Classes.time}>{ticket.departure_time}</div>
-              <div className={Classes.location}>{ticket.destination_name}, {ticket.destination}</div>
-              <div className={Classes.date}>{format.date(ticket.departure_date)}</div>
+              <div className={Classes.time}>{ticket.departureTime}</div>
+              <div className={Classes.location}>
+                {ticket.destinationName}, {ticket.destination}
+              </div>
+              <div className={Classes.date}>
+                {format.date(ticket.departureDate)}
+              </div>
             </div>
           </div>
         </div>

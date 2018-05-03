@@ -3,7 +3,7 @@ export const Values = {
   DIRECT: 'DIRECT',
   ONE: 'ONE',
   TWO: 'TWO',
-  THREE: 'THREE',
+  THREE: 'THREE'
 }
 
 export default {

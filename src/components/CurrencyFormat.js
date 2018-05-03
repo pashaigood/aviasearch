@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import Currencies from 'contexts/Currencies'
 import format from 'utils/format'
 
-const CurrencyFormat = (props) => (
+const CurrencyFormat = props => (
   <Currencies.Consumer>
-    {(currency) => (format.currency(props.value, currency))}
+    {currency => format.currency(props.value, currency)}
   </Currencies.Consumer>
 )
 

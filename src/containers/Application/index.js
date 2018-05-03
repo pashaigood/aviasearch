@@ -10,7 +10,6 @@ const TICKETS_SORTING = 'price'
 
 @hot(module)
 export default class extends React.Component {
-
   componentWillMount () {
     const filters = new FiltersDTO()
 
@@ -21,7 +20,7 @@ export default class extends React.Component {
     })
   }
 
-  changeCurrency = (currencyName) => {
+  changeCurrency = currencyName => {
     const currency = Currencies[currencyName]
     if (!currency) {
       throw new Error('Try to select unregistered currency.')
@@ -32,8 +31,8 @@ export default class extends React.Component {
     })
   }
 
-  changeFilter = ({stopQuantities}) => {
-    let {filters} = this.state
+  changeFilter = ({ stopQuantities }) => {
+    let { filters } = this.state
 
     filters = new FiltersDTO({
       stopQuantities: stopQuantities || filters.stopQuantities
@@ -46,9 +45,12 @@ export default class extends React.Component {
   }
 
   getTickets (filters = new FiltersDTO(), sort = TICKETS_SORTING) {
-    return ticketsMock.tickets.filter(filters.getFilter).sort((a, b) => a[sort] > b[sort]).map(t => new Ticket(t))
+    return ticketsMock.tickets
+      .filter(filters.getFilter)
+      .sort((a, b) => a[sort] > b[sort])
+      .map(t => new Ticket(t))
   }
-  
+
   render () {
     return (
       <Application

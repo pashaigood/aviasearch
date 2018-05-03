@@ -1,23 +1,25 @@
 import Filters from '../Filters'
-import ticketsMocks from 'mocks/tickets.json'
+import ticketsMocks from '../../../assets/mocks/tickets.json'
 
 describe('dtos/Filters', () => {
   it('Should filter items', () => {
-    const tickets = filterTickets({stopQuantities: [1]})
+    const tickets = filterTickets({ stopQuantities: [1] })
     const ticketsWithOneStop = getTicketsWithNStops(1)
     expect(tickets.length).toBe(ticketsWithOneStop.length)
   })
 
   it('Should filter return all tickets with empty filter', () => {
-    const tickets = filterTickets({stopQuantities: []})
+    const tickets = filterTickets({ stopQuantities: [] })
     expect(tickets.length).toBe(ticketsMocks.tickets.length)
   })
 
   it('Should filter several stops', () => {
     const ticketsWithOneStop = getTicketsWithNStops(1)
     const ticketsWithThreeStop = getTicketsWithNStops(3)
-    const tickets = filterTickets({stopQuantities: [1, 3]})
-    expect(tickets.length).toBe(ticketsWithOneStop.length + ticketsWithThreeStop.length)
+    const tickets = filterTickets({ stopQuantities: [1, 3] })
+    expect(tickets.length).toBe(
+      ticketsWithOneStop.length + ticketsWithThreeStop.length
+    )
   })
 })
 

@@ -10,7 +10,7 @@ export const Values = {
  * @type {Object<string, CurrencyDTO>}
  */
 export default {
-  [Values.RUB]: new Currency({name: Values.RUB, rate: 1}),
-  [Values.USD]: new Currency({name: Values.USD, rate: 1/63}),
-  [Values.EUR]: new Currency({name: Values.EUR, rate: 1/74})
+  [Values.RUB]: new Currency({ name: Values.RUB, rate: 1 }),
+  [Values.USD]: new Currency({ name: Values.USD, rate: 1 / 63 }),
+  [Values.EUR]: new Currency({ name: Values.EUR, rate: 1 / 74 })
 }
