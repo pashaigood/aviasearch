@@ -12,19 +12,20 @@ export default class extends React.PureComponent {
   }
 
   toggle = name => {
+    const result = []
     const values = new Set(this.props.values)
     if (values.has(StopQuantity[name])) {
       values.delete(StopQuantity[name])
     } else {
       values.add(StopQuantity[name])
     }
-    this.props.onChange(Array.from(values))
+
+    values.forEach(i => { result.push(i) })
+    this.props.onChange(result)
   }
 
   checkOnly (name) {
-    const values = new Set()
-    values.add(StopQuantity[name])
-    this.props.onChange(Array.from(values))
+    this.props.onChange([StopQuantity[name]])
   }
 
   checkAll = () => {

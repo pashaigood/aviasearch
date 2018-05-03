@@ -32,6 +32,7 @@ const commonConfig = {
     new HtmlWebpackPlugin({
       template: path.resolve(`${Paths.SRC}/index.html`),
       inject: true,
+      hash: !isDevelopment,
       minify: isDevelopment ? false : [
         "removeComments",
         "removeCommentsFromCDATA",

@@ -14,7 +14,7 @@
     "lint": "standard ./src/**/*.{js,jsx,json,md}",
     "test": "npm run lint && npm run unit",
     "unit": "jest",
-    "webpack:start": "cross-env NODE_ENV=development webpack-dev-server --hot",
+    "webpack:start": "cross-env NODE_ENV=development webpack-dev-server",
     "webpack:build": "cross-env NODE_ENV=production webpack"
   },
   "license": "MIT",
@@ -32,7 +32,9 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.13",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
+    "babel-runtime": "^6.26.0",
     "compression": "^1.7.2",
     "copyfiles": "^2.0.0",
     "cross-env": "^5.1.4",
@@ -100,15 +102,21 @@
       "beforeEach",
       "describe",
       "expect",
-      "it"
+      "it",
+      "fetch",
+      "alert"
     ]
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.0",
+    "dayjs": "^1.5.18",
+    "fecha": "^2.3.3",
     "immutable": "^3.8.2",
     "npm-font-open-sans": "^1.1.0",
     "prop-types": "^15.6.1",
     "recompose": "^0.27.0",
+    "unfetch": "^3.0.0",
     "utils": "^0.3.1"
   }
 }

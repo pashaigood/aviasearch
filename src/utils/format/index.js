@@ -1,3 +1,4 @@
+import fecha from 'fecha'
 import stopQuantityName from './stopQuantityName'
 
 export default {
@@ -20,12 +21,18 @@ function currency (number, currency) {
   }).format(number * currency.rate)
 }
 
+fecha.i18n = {
+  dayNamesShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  dayNames: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+  monthNamesShort: ['янв', 'фев', 'мар', 'апр', 'май', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'],
+  monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+  amPm: ['', ''],
+  DoFn: function (D) {
+    return D
+  }
+}
+
 function date (source) {
-  const date = new Date(source)
-  const locale = 'ru-RU'
-  return `${date.getDay()} ${date
-    .toLocaleString(locale, { month: 'short' })
-    .slice(0, -1)} ${date.getFullYear()}, ${date.toLocaleString(locale, {
-    weekday: 'short'
-  })}`
+  const date = fecha.parse(source, 'DD.MM.YY')
+  return fecha.format(date, 'D MMM YYYY, ddd')
 }

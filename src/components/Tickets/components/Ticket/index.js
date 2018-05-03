@@ -29,7 +29,7 @@ export default ({ ticket }) => (
             <div className={Classes.direction} />
           </div>
           <div className='d-flex'>
-            <div className='w-100'>
+            <div className='w-50'>
               <div className={Classes.time}>{ticket.arrivalTime}</div>
               <div className={Classes.location}>
                 {ticket.origin}, {ticket.originName}
@@ -38,7 +38,7 @@ export default ({ ticket }) => (
                 {format.date(ticket.arrivalDate)}
               </div>
             </div>
-            <div className={`w-100 ${Classes.destination}`}>
+            <div className={`w-50 ${Classes.destination}`}>
               <div className={Classes.time}>{ticket.departureTime}</div>
               <div className={Classes.location}>
                 {ticket.destinationName}, {ticket.destination}

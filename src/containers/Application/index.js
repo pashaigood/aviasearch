@@ -1,7 +1,6 @@
 import React from 'react'
 import { hot } from 'react-hot-loader'
 import Currencies, { Values as CurrencyValues } from 'constants/Currencies'
-import ticketsMock from 'mocks/tickets.json'
 import FiltersDTO from 'dtos/Filters'
 import Ticket from 'dtos/Ticket'
 import Application from './Application'
@@ -11,13 +10,19 @@ const TICKETS_SORTING = 'price'
 @hot(module)
 export default class extends React.Component {
   componentWillMount () {
+    this.init()
+  }
+
+  init () {
     const filters = new FiltersDTO()
 
     this.setState({
       currency: Currencies[CurrencyValues.RUB],
       filters,
-      tickets: this.getTickets(filters)
+      tickets: []
     })
+
+    this.getTickets(filters)
   }
 
   changeCurrency = currencyName => {
@@ -39,16 +44,23 @@ export default class extends React.Component {
     })
 
     this.setState({
-      filters,
-      tickets: this.getTickets(filters)
+      filters
     })
+
+    this.getTickets(filters)
   }
 
-  getTickets (filters = new FiltersDTO(), sort = TICKETS_SORTING) {
-    return ticketsMock.tickets
-      .filter(filters.getFilter)
-      .sort((a, b) => a[sort] > b[sort])
-      .map(t => new Ticket(t))
+  async getTickets (filters = this.state.filters, sort = TICKETS_SORTING) {
+    try {
+      const data = await fetch('/mocks/tickets.json').then(r => r.json())
+      this.setState({
+        tickets: data.tickets.filter(filters.getFilter)
+          .sort((a, b) => a[sort] > b[sort])
+          .map(t => new Ticket(t))
+      })
+    } catch (e) {
+      alert('Извините, запрос не дал результатов.')
+    }
   }
 
   render () {
