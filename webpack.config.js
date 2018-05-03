@@ -21,7 +21,7 @@ const commonConfig = {
   output: {
     path: path.resolve(Paths.DIST),
     filename: 'index.js',
-    publicPath: '/'
+    publicPath: './'
   },
   plugins: [
     new webpack.EnvironmentPlugin({

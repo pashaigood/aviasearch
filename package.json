@@ -4,7 +4,7 @@
   "description": "Simple avia tickets search example.",
   "main": "index.js",
   "scripts": {
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./dist/*",
     "start": "npm run clean && npm run copy && npm run webpack:start",
     "dist": "npm run build && npm run serve",
     "build": "npm run clean && npm run webpack:build && npm run copy",

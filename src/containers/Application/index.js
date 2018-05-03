@@ -52,7 +52,7 @@ export default class extends React.Component {
 
   async getTickets (filters = this.state.filters, sort = TICKETS_SORTING) {
     try {
-      const data = await fetch('/mocks/tickets.json').then(r => r.json())
+      const data = await fetch('./mocks/tickets.json').then(r => r.json())
       this.setState({
         tickets: data.tickets.filter(filters.getFilter)
           .sort((a, b) => a[sort] > b[sort])
