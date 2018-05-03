@@ -10,13 +10,13 @@
     left: $padding + 1px;
     height: 19px;
     width: 19px;
-    background-image: url("assets/filter-checkbox-icon.png");
+    background-image: url("./assets/filter-checkbox-icon.png");
     background-repeat: no-repeat;
   }
 
   &.checked {
     .checkmark {
-      background-image: url("assets/filter-checkbox-checked-icon.png");
+      background-image: url("./assets/filter-checkbox-checked-icon.png");
     }
   }
 

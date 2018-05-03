@@ -1,0 +1,10 @@
+{
+    "compress": {
+        "global_defs": {
+            "process.env.NODE_ENV": "production"
+        },
+        "drop_console": true,
+        "unused": true,
+        "dead_code": true
+    }
+}

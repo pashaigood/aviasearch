@@ -1,4 +1,5 @@
 import React from 'react'
+import { hot } from 'react-hot-loader'
 import Currencies, { Values as CurrencyValues } from 'constants/Currencies'
 import ticketsMock from 'mocks/tickets.json'
 import FiltersDTO from 'dtos/Filters'
@@ -7,6 +8,7 @@ import Application from './Application'
 
 const TICKETS_SORTING = 'price'
 
+@hot(module)
 export default class extends React.Component {
 
   componentWillMount () {
