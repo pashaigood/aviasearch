@@ -1,8 +1,8 @@
-#Aviasears
+# Aviasearch
 
 Демочка: https://pashaigood.github.io/aviasearch/
 
-#Процесс
+# Процесс
 
 ## Планировение
 Простая декомпозиция, чтобы ничего не забыть.
