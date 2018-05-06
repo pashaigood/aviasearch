@@ -1,4 +1,5 @@
 import React from 'react'
+import { withProps } from 'recompose'
 import Container from 'components/Container'
 import CurrencyFormat from 'components/CurrencyFormat'
 import LineLogo from 'images/line-logo.png'
@@ -9,15 +10,15 @@ import Classes from './index.scss'
  *
  * @param {TicketDTO} ticket
  */
-export default ({ ticket }) => (
+const Ticket = ({ticket, onBuy}) => (
   <Container className={`${Classes.container} `}>
     <div className='row no-gutters'>
       <div className={Classes.buy}>
         <div>
-          <img src={LineLogo} width={120} height={35} />
+          <img src={LineLogo} width={120} height={35}/>
         </div>
-        <button className='btn'>
-          Купить <br /> за <CurrencyFormat value={ticket.price} />
+        <button onClick={onBuy} className='btn'>
+          Купить <br /> за <CurrencyFormat value={ticket.price}/>
         </button>
       </div>
       <div className='col'>
@@ -26,7 +27,7 @@ export default ({ ticket }) => (
             <div className={Classes.count}>
               {format.stopQuantityName(ticket.stops)}
             </div>
-            <div className={Classes.direction} />
+            <div className={Classes.direction}/>
           </div>
           <div className='d-flex'>
             <div className='w-50'>
@@ -53,3 +54,17 @@ export default ({ ticket }) => (
     </div>
   </Container>
 )
+
+export default withProps({
+  onBuy (e) {
+    const { pageX, pageY } = e
+    import('components/Firework')
+      .then((firework) => {
+        firework.default(pageX, pageY)
+      })
+      .catch((e) => {
+        console.error(e)
+        alert('no more fireworks!')
+      })
+  }
+})(Ticket)

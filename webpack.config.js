@@ -21,7 +21,8 @@ const commonConfig = {
   output: {
     path: path.resolve(Paths.DIST),
     filename: 'index.js',
-    publicPath: './'
+    publicPath: '/',
+    chunkFilename: "chunks/[chunkhash].js"
   },
   plugins: [
     new webpack.EnvironmentPlugin({
